@@ -9,16 +9,16 @@ set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 #list(APPEND CMAKE_PREFIX_PATH "/opt/ros/$ENV{ROS_DISTRO}/")
 
 find_package(catkin REQUIRED COMPONENTS
-  std_msgs
-  geometry_msgs
-  sensor_msgs
-  #actionlib_msgs
-  message_generation
-  shape_msgs
+    std_msgs
+    geometry_msgs
+    sensor_msgs
+    #actionlib_msgs
+    message_generation
+    shape_msgs
 )
 
-add_message_files( 
-    DIRECTORY msg 
+add_message_files(
+    DIRECTORY msg
     FILES
     BoundingBox2Df.msg
     BoundingBox2Di.msg
@@ -33,12 +33,12 @@ add_message_files(
     RGBDSensors.msg
     PlaneStamped.msg
     PosTrackStatus.msg
-  )
+)
 
 #add_action_files(DIRECTORY action FILES act.action)
 
-add_service_files( 
-    DIRECTORY srv 
+add_service_files(
+    DIRECTORY srv
     FILES
     set_pose.srv
     reset_odometry.srv
@@ -57,7 +57,7 @@ add_service_files(
     save_area_memory.srv
     set_roi.srv
     reset_roi.srv
-  )
+)
 
 generate_messages(
     DEPENDENCIES
@@ -70,10 +70,10 @@ generate_messages(
 
 catkin_package(
     INCLUDE_DIRS ./include
-    CATKIN_DEPENDS 
-    message_generation 
-    std_msgs 
-    geometry_msgs 
+    CATKIN_DEPENDS
+    message_generation
+    std_msgs
+    geometry_msgs
     sensor_msgs
     #actionlib_msgs
 )
@@ -88,6 +88,6 @@ add_custom_target(all_files_${PROJECT_NAME} SOURCES ${all_files})
 
 # Install meshes
 install(DIRECTORY
-  meshes
-  DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}
+    meshes
+    DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}
 )
